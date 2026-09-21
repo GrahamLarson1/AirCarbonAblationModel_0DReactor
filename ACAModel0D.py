@@ -108,14 +108,14 @@ def ACAModel0D(T, P, B,
         F2D = np.sqrt((np.pi*k_b*T)/(2*m))
         return F2D
 
-    F_O = QuarterMeanThermalSpeed(T,m_O) # Quarter mean thermal speed of atomic oxygen
+    F_O = QuarterMeanThermalSpeed(T,m_O)          # Quarter mean thermal speed of atomic oxygen
     F_O2D = MobileAbsorbedMeanThermalSpeed(T,m_O) # Mean thermal speed of mobile adsorbed atomic oxygen
-    F_N = QuarterMeanThermalSpeed(T,m_N) # Quarter mean thermal speed of atomic nitrogen
+    F_N = QuarterMeanThermalSpeed(T,m_N)          # Quarter mean thermal speed of atomic nitrogen
     F_N2D = MobileAbsorbedMeanThermalSpeed(T,m_N) # Mean thermal speed of mobile adsorbed atomic nitrogen
-    F_O2 = QuarterMeanThermalSpeed(T,m_O2) # Quarter mean thermal speed of molecular oxygen
-    fOin = F_O * O
-    fO2in = F_O2 * O2
-    fNin = F_N * N
+    F_O2 = QuarterMeanThermalSpeed(T,m_O2)        # Quarter mean thermal speed of molecular oxygen
+    fOin = F_O * O     # flux of atomic oxygen
+    fO2in = F_O2 * O2  # flux of molecular oxygen
+    fNin = F_N * N     # flux of atomic nitrogen
 
     ''' Reaction Coefficient Equations '''
     # Atomic Oxygen Reactions
@@ -144,7 +144,7 @@ def ACAModel0D(T, P, B,
     kOx4 = F_O2/B**2*math.e**(-EOx4/T)
     kOx5 = F_O2/B*y_kOx5*math.e**(-EOx5/T)
 
-    ''' ACA Steady State Model '''
+    ''' ACA Steady State Model Coefficients '''
     A1 = 2*kOx1*O2
     B1 = kO1*O
     C1 = 2*kO9
